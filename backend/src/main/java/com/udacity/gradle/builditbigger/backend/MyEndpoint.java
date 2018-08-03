@@ -5,6 +5,7 @@ import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
+import net.emojiparty.android.jokes.Jokes;
 
 /** An endpoint class we are exposing */
 @Api(
@@ -23,6 +24,14 @@ public class MyEndpoint {
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
+
+        return response;
+    }
+
+    @ApiMethod(name = "tellJoke")
+    public MyBean tellJoke() {
+        MyBean response = new MyBean();
+        response.setData(Jokes.getJoke());
 
         return response;
     }
