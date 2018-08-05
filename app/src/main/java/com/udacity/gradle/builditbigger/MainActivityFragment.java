@@ -17,6 +17,7 @@ public class MainActivityFragment extends Fragment {
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     View root = inflater.inflate(R.layout.fragment_main, container, false);
+    new AdLoader().loadInto(root); // only applies to free flavor, paid version does nothing
     return root;
   }
 }
